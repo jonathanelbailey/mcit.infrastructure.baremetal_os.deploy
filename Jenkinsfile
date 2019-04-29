@@ -31,11 +31,11 @@ node {
                     // hostKeyChecking: false,
                     // colorized: true,
                     extras: "-c local",
-                    // extraVars: [
-                    //     hp_ilo_user: [ value: "$hp_ilo_user" ],
-                    //     hp_ilo_pass: [ value: "$hp_ilo_pass", hidden: true ],
-                    //     ansible_become_pass: [ value: "$vagrant_pass", hidden: true ]
-                    // ]
+                    extraVars: [
+                        hp_ilo_user: [ value: "$hp_ilo_user" ],
+                        hp_ilo_pass: [ value: "$hp_ilo_pass", hidden: true ],
+                        ansible_become_pass: [ value: "$vagrant_pass", hidden: true ]
+                    ]
                 )
             }
         }
