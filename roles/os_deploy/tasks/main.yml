@@ -18,7 +18,7 @@
     media: cdrom
     image: "{{ ubuntu_16_04_url }}"
     force: yes
-    ssl_version: TLSv1_2 # run : | openssl s_client -connect 10.0.0.199:443 to check
+    ssl_version: TLSv1_1 # run : | openssl s_client -connect 10.0.0.199:443 to check. also, forcing AES/3DES encryption in ilo3 helps.
   delegate_to: localhost
 
   
