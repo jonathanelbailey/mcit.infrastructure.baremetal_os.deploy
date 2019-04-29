@@ -18,6 +18,7 @@
     media: cdrom
     image: "{{ ubuntu_16_04_url }}"
     force: yes
+    ssl_version: SSLv23
   delegate_to: localhost
 
   
