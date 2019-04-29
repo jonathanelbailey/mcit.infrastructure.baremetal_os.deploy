@@ -30,7 +30,7 @@ node {
                     credentialsId: 'vagrant',
                     // hostKeyChecking: false,
                     // colorized: true,
-                    extras: "-c local",
+                    extras: "-c local -vvv",
                     extraVars: [
                         hp_ilo_username: "$hp_ilo_user",
                         hp_ilo_password: [ value: "$hp_ilo_pass", hidden: true ],
