@@ -1,7 +1,7 @@
 ---
 - name: install the hpilo python module
   pip:
-    name: hpilo
+    name: python-hpilo
     state: present
 
 # - name: download ubuntu 16.04 os
