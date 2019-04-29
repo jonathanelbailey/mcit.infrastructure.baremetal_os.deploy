@@ -23,6 +23,7 @@ node {
         ){
             wrap([$class: 'AnsiColorBuildWrapper', colorMapName: "xterm"]) {
                 ansiblePlaybook(
+                    installation: "ansible",
                     playbook: "$env.WORKSPACE/deploy_os.yml",
                     inventory: "$env.WORKSPACE/hosts",
                     credentialsId: 'vagrant',
