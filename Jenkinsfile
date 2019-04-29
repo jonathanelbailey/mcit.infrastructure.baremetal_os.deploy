@@ -25,7 +25,7 @@ node {
                     hostKeyChecking: false,
                     colorized: true,
                     extraVars: [
-                        hp_ilo_user: [ value: "$hp_ilo_user" ]
+                        hp_ilo_user: [ value: "$hp_ilo_user" ],
                         hp_ilo_pass: [ value: "$hp_ilo_pass", hidden: true ]
                     ]
                 )
