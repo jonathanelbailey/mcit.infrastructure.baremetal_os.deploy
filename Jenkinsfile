@@ -15,18 +15,23 @@ node {
         withCredentials([usernamePassword(
             credentialsId: 'hp_ilo',
             passwordVariable: 'hp_ilo_pass',
-            usernameVariable: 'hp_ilo_user')]
+            usernameVariable: 'hp_ilo_user'),
+            usernamePassword(
+                credentialsId: 'vagrant',
+                passwordVariable: 'vagrant_pass',
+                usernameVariable: 'vagrant_user')]
         ){
             wrap([$class: 'AnsiColorBuildWrapper', colorMapName: "xterm"]) {
                 ansiblePlaybook(
                     playbook: "$env.WORKSPACE/deploy_os.yml",
                     inventory: "$env.WORKSPACE/hosts",
-                    // credentialsId: 'hp_ilo',
+                    credentialsId: 'vagrant',
                     hostKeyChecking: false,
                     colorized: true,
                     extraVars: [
                         hp_ilo_user: [ value: "$hp_ilo_user" ],
                         hp_ilo_pass: [ value: "$hp_ilo_pass", hidden: true ]
+                        ansible_become_password: [ value: "$vagrant_pass", hidden: true ]
                     ]
                 )
             }
