@@ -1,4 +1,9 @@
 ---
+- name: install the hpilo python module
+  pip:
+    name: hpilo
+    state: present
+
 # - name: download ubuntu 16.04 os
 #   get_url:
 #     url: "{{ ubuntu_16_04_url }}"
