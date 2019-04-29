@@ -14,8 +14,8 @@ node {
     stage('Deploy OS') {
         withCredentials([usernamePassword(
             credentialsId: 'hp_ilo',
-            passwordVariable: 'sudo_pass',
-            usernameVariable: 'sudo_user')]
+            passwordVariable: 'hp_ilo_pass',
+            usernameVariable: 'hp_ilo_user')]
         ){
             wrap([$class: 'AnsiColorBuildWrapper', colorMapName: "xterm"]) {
                 ansiblePlaybook(
@@ -25,7 +25,8 @@ node {
                     hostKeyChecking: false,
                     colorized: true,
                     extraVars: [
-                        ansible_become_pass: [ value: "$sudo_pass", hidden: true ]
+                        hp_ilo_user: [ value: "$hp_ilo_user" ]
+                        hp_ilo_pass: [ value: "$hp_ilo_pass", hidden: true ]
                     ]
                 )
             }
