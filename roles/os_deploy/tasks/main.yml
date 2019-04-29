@@ -18,7 +18,7 @@
     media: cdrom
     image: "{{ ubuntu_16_04_url }}"
     force: yes
-    ssl_version: SSLv3
+    ssl_version: TLSv1_2 # run : | openssl s_client -connect 10.0.0.199:443 to check
   delegate_to: localhost
 
   
