@@ -1,0 +1,18 @@
+---
+# - name: download ubuntu 16.04 os
+#   get_url:
+#     url: "{{ ubuntu_16_04_url }}"
+#     dest: "{{ ubuntu_16_04_iso_dest_path }}"
+#     checksum: "{{ ubuntu_16_04_iso_md5_checksum }}"
+
+- name: boot from ubuntu 16.04 iso
+  hpilo_boot:
+    host: "{{ hp_ilo_server }}"
+    login: "{{ hp_ilo_username }}"
+    password: "{{ hp_ilo_password }}"
+    media: cdrom
+    image: "{{ ubuntu_16_04_url }}"
+    force: yes
+  delegate_to: localhost
+
+  
