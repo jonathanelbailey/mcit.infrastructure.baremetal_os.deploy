@@ -23,7 +23,7 @@ node {
         ){
             wrap([$class: 'AnsiColorBuildWrapper', colorMapName: "xterm"]) {
                 ansiblePlaybook(
-                    installation: "ansible",
+                    installation: 'ansible',
                     playbook: "$env.WORKSPACE/deploy_os.yml",
                     inventory: "$env.WORKSPACE/hosts",
                     credentialsId: 'vagrant',
@@ -32,7 +32,7 @@ node {
                     extraVars: [
                         hp_ilo_user: [ value: "$hp_ilo_user" ],
                         hp_ilo_pass: [ value: "$hp_ilo_pass", hidden: true ],
-                        ansible_become_password: [ value: "$vagrant_pass", hidden: true ]
+                        ansible_become_pass: [ value: "$vagrant_pass", hidden: true ]
                     ]
                 )
             }
